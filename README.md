@@ -2,6 +2,9 @@
 # ERP-DEMO
 A sleek employee management app built with Next.js and Supabase. Easily add, edit, and delete employee records with realtime syncing. Designed for simplicity and efficiency, it streamlines team management with a clean UI and serverless backend.
 
+
+![ERP-DEMO](https://github.com/shoaibahmed2755/ERP-DEMO/blob/main/photos/Main%20Dashboard.png)
+
 [![Next.js](https://img.shields.io/badge/Next.js-13-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-1.50.0-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 [![Chart.js](https://img.shields.io/badge/Chart.js-4.4-F5788D?logo=chartdotjs)](https://www.chartjs.org/)
@@ -27,9 +30,10 @@ A sleek employee management app built with Next.js and Supabase. Easily add, edi
 
 ## 🖼️ Screenshots
 
-| Advanced Dashboard | AI Insights (Coach) | Life Tips |
-|------------|-------------|-----|
-| ![Dashboard](https://github.com/shoaibahmed2755/Twinenergy/blob/main/AdvanceDashboard.png) | ![AI Insights](https://github.com/shoaibahmed2755/Twinenergy/blob/main/AI%20Coach.png) | ![Life Tips](https://github.com/shoaibahmed2755/Twinenergy/blob/main/Life%20Tips.png) |
+| Register | Login | Inventory | Employee | AI-Chatbot |
+|----------|-------|-----------|----------|------------|
+| ![Register](https://github.com/shoaibahmed2755/ERP-DEMO/blob/main/photos/Register.png) | ![Login](https://github.com/shoaibahmed2755/ERP-DEMO/blob/main/photos/Login.png) | ![Inventory](https://github.com/shoaibahmed2755/ERP-DEMO/blob/main/photos/Inventory.png) | ![Employee](https://github.com/shoaibahmed2755/ERP-DEMO/blob/main/photos/Employees.png) | ![AI-Chatbot](https://github.com/shoaibahmed2755/ERP-DEMO/blob/main/photos/AI%20chatbot.png) |
+
 
 ---
 
