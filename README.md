@@ -1,170 +1,36 @@
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# ERP-DEMO
-A sleek employee management app built with Next.js and Supabase. Easily add, edit, and delete employee records with realtime syncing. Designed for simplicity and efficiency, it streamlines team management with a clean UI and serverless backend.
+## Getting Started
 
-[![Next.js](https://img.shields.io/badge/Next.js-13-black?logo=next.js&logoColor=white)](https://nextjs.org/)
-[![Supabase](https://img.shields.io/badge/Supabase-1.50.0-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
-[![Chart.js](https://img.shields.io/badge/Chart.js-4.4-F5788D?logo=chartdotjs)](https://www.chartjs.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
----
-
-## 🌐 Live Demo  
-👉 [Try TwinEnergy Now](https://github.com/shoaibahmed2755/Twinenergy)
-
----
-
-## 🚀 Features
-
-- 🔍 View a list of employees with search and pagination  
-- ➕ Add new employees with name, email, and role  
-- ✏️ Edit existing employees inline  
-- 🗑️ Delete employees easily  
-- ⚡ Realtime updates using Supabase backend  
-- 🧑‍💻 Built with React (Next.js 13), TypeScript, and Tailwind CSS  
-
----
-
-## 🖼️ Screenshots
-
-| Advanced Dashboard | AI Insights (Coach) | Life Tips |
-|------------|-------------|-----|
-| ![Dashboard](https://github.com/shoaibahmed2755/Twinenergy/blob/main/AdvanceDashboard.png) | ![AI Insights](https://github.com/shoaibahmed2755/Twinenergy/blob/main/AI%20Coach.png) | ![Life Tips](https://github.com/shoaibahmed2755/Twinenergy/blob/main/Life%20Tips.png) |
-
----
-
-## 🧩 Project Structure
-
-```
-src/
-│
-├── app/
-│ ├── dashboard/
-│ │ ├── employees/
-│ │ │ ├── page.tsx # Employee list page
-│ │ │ ├── [id]/edit.tsx # Edit employee page
-│ │ │ └── new.tsx # Add new employee page
-│
-├── lib/
-│ └── supabaseClient.ts # Supabase client setup
-│
-├── components/
-│ ├── EmployeeForm.tsx # Reusable employee form component
-│ └── EmployeeList.tsx # Employee list component
-│
-└── styles/
-└── globals.css # Tailwind CSS global styles
-```
-
----
-
-## ⚙️ Installation
-
-```bash
-git clone https://github.com/<your-username>/employee-manager.git
-cd employee-manager
-npm install
-npm run dev
-```
-
-Then open in your browser:
-```
-http://localhost:3000
-```
-
----
-
-## 🔑 Environment Variables
-
-Create a `.env` file in your project root and add:
-
-```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
-Get your keys from:
-- [Google AI Studio (Gemini)](https://makersuite.google.com/app/apikey)
-- [Google Cloud Console (Maps)](https://console.cloud.google.com/)
-
----
-
-## 🧑‍💻 How to Use
-
-1.Go to /dashboard/employees to see the employee list.
-2.Click Add Employee to add a new record.
-3.Click Edit next to any employee to update their details.
-4.Use the Delete button to remove an employee.
-5.All changes sync instantly with Supabase backend.
-
----
-
-## 🛠️ Built With
-
-- ⚛️ Next.js 13 — React framework with App Router
-- 🗃️ Supabase — Open-source Firebase alternative backend
-- 🎨 Tailwind CSS — Utility-first CSS framework
-- 💻 TypeScript — Static typing for improved developer experience
-- ⚡ React Hooks — Manage state and side effects
-- 🤖 **Google Gemini API** — AI insights
-- 
----
-
-## 📦 Deployment
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Deploy easily on:
-- **Vercel**
-- **Netlify**
-- **Firebase Hosting**
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 👨‍💻 Contributors
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-| Name | Role | Photo | LinkedIn |
-|------|------|--------|-----------|
-| **Shoaib Ahmed** | Developer & Designer | ![Shoaib Ahmed](https://github.com/shoaibahmed2755/Twinenergy/blob/main/Contri/Shoaib.png) | [LinkedIn](https://www.linkedin.com/in/shoaib-ahmed-b05973274/) |
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-## 🤝 Contributing
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-```bash
-git fork https://github.com/<your-username>/employee-manager.git
-git checkout -b feature-name
-git commit -m "Add new feature"
-git push origin feature-name
-```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-Then open a **Pull Request** on GitHub.
+## Deploy on Vercel
 
----
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## 📜 License
-
-This project is licensed under the **MIT License**.  
-You’re free to use, modify, and share it responsibly.
-
----
-
-## 🌟 Acknowledgments
-
-- Google Gemini API for AI insights  
-- Chart.js & Recharts for beautiful data visualization  
-- Tailwind CSS for stunning and quick design  
-- The open-source community for constant inspiration  
-
----
-
-### 💚 ERP-DEMO — Streamline Your Team Management  
-> *“Effortless employee management with a modern, serverless stack.”*
-
-# Commit & Push in CMD
-git add README.md
-git commit -m "Added enhanced README with visuals, CSV example, and live demo link"
-git push origin main
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
