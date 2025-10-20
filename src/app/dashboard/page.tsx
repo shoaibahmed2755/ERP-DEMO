@@ -26,17 +26,26 @@ export default function DashboardPage() {
       setError(null)
 
       try {
-        const { data: items, error: itemsError } = await supabase.from<InventoryItem>('inventory').select('id, quantity')
+        const { data: items, error: itemsError } = await supabase
+          .from<InventoryItem>('inventory')
+          .select('id, quantity')
         if (itemsError) throw itemsError
 
-        const { data: employees, error: employeesError } = await supabase.from<Employee>('employees').select('id')
+        const { data: employees, error: employeesError } = await supabase
+          .from<Employee>('employees')
+          .select('id')
         if (employeesError) throw employeesError
 
         const lowStock = items?.filter((i) => i.quantity < 10).length || 0
 
-        setCounts({ items: items?.length || 0, lowStock, employees: employees?.length || 0 })
-      } catch (err: any) {
-        setError(err.message || 'Failed to load data')
+        setCounts({
+          items: items?.length || 0,
+          lowStock,
+          employees: employees?.length || 0
+        })
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : 'Failed to load data'
+        setError(errorMessage)
       } finally {
         setLoading(false)
       }
@@ -64,7 +73,15 @@ export default function DashboardPage() {
   )
 }
 
-function Card({ title, value, valueColor = 'text-gray-900' }: { title: string; value: number; valueColor?: string }) {
+function Card({
+  title,
+  value,
+  valueColor = 'text-gray-900'
+}: {
+  title: string
+  value: number
+  valueColor?: string
+}) {
   return (
     <div className="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
       <h2 className="text-sm font-medium text-gray-500">{title}</h2>
