@@ -13,7 +13,7 @@ A sleek employee management app built with Next.js and Supabase. Easily add, edi
 ---
 
 ## 🌐 Live Demo  
-👉 [Try TwinEnergy Now](https://github.com/shoaibahmed2755/Twinenergy)
+👉 [Try ERP-DEMO Now](https://github.com/shoaibahmed2755/ERP-DEMO)
 
 ---
 
