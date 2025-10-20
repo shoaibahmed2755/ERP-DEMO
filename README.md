@@ -91,11 +91,11 @@ Get your keys from:
 
 ## 🧑‍💻 How to Use
 
-1.Go to /dashboard/employees to see the employee list.
-2.Click Add Employee to add a new record.
-3.Click Edit next to any employee to update their details.
-4.Use the Delete button to remove an employee.
-5.All changes sync instantly with Supabase backend.
+1. Go to /dashboard/employees to see the employee list.
+2. Click Add Employee to add a new record.
+3. Click Edit next to any employee to update their details.
+4. Use the Delete button to remove an employee.
+5. All changes sync instantly with Supabase backend.
 
 ---
 
