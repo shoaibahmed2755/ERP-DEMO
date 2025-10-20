@@ -2,8 +2,8 @@
 # ERP-DEMO
 A sleek employee management app built with Next.js and Supabase. Easily add, edit, and delete employee records with realtime syncing. Designed for simplicity and efficiency, it streamlines team management with a clean UI and serverless backend.
 
-[![React](https://img.shields.io/badge/React-18.2-blue?logo=react)](https://react.dev/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0-38B2AC?logo=tailwindcss)](https://tailwindcss.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-13-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-1.50.0-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 [![Chart.js](https://img.shields.io/badge/Chart.js-4.4-F5788D?logo=chartdotjs)](https://www.chartjs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
