@@ -27,12 +27,12 @@ export default function DashboardPage() {
 
       try {
         const { data: items, error: itemsError } = await supabase
-          .from<InventoryItem>('inventory')
+          .from<InventoryItem, InventoryItem>('inventory') // ✅ FIXED
           .select('id, quantity')
         if (itemsError) throw itemsError
 
         const { data: employees, error: employeesError } = await supabase
-          .from<Employee>('employees')
+          .from<Employee, Employee>('employees') // ✅ FIXED
           .select('id')
         if (employeesError) throw employeesError
 
