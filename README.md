@@ -14,7 +14,7 @@ With an induild AI-CHATBOT
 ---
 
 ## 🌐 Live Demo  
-👉 [Try ERP-DEMO Now](https://github.com/shoaibahmed2755/ERP-DEMO)
+👉 [Try ERP-DEMO Now](https://erp-demo-nu.vercel.app/login)
 
 ---
 
