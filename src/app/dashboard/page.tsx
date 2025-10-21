@@ -2,17 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
-import InventoryTrendChart from "@/components/InventoryTrendChart"; // <-- import chart
+import InventoryTrendChart from "@/components/InventoryTrendChart";
 
 type InventoryItem = {
   id: number;
   quantity: number;
-  // Add other columns if needed
 };
 
 type Employee = {
   id: number;
-  // Add other columns if needed
 };
 
 export default function DashboardPage() {
@@ -27,12 +25,12 @@ export default function DashboardPage() {
 
       try {
         const { data: items, error: itemsError } = await supabase
-          .from<InventoryItem, InventoryItem>("inventory") // ✅ FIXED
+          .from<InventoryItem>("inventory")
           .select("id, quantity");
         if (itemsError) throw itemsError;
 
         const { data: employees, error: employeesError } = await supabase
-          .from<Employee, Employee>("employees") // ✅ FIXED
+          .from<Employee>("employees")
           .select("id");
         if (employeesError) throw employeesError;
 
@@ -43,11 +41,11 @@ export default function DashboardPage() {
           lowStock,
           employees: employees?.length || 0,
         });
-      }catch (err: unknown) {
-        const errorMessage: string =
-        err instanceof Error ? err.message : "Failed to load data";
+      } catch (err) {
+        const errorMessage =
+          err instanceof Error ? err.message : "Failed to load data";
         setError(errorMessage);
-      }finally {
+      } finally {
         setLoading(false);
       }
     };
@@ -75,7 +73,7 @@ export default function DashboardPage() {
 
       <div className="bg-white rounded-lg shadow p-6">
         <h2 className="text-lg font-semibold mb-4">Inventory Trend</h2>
-        <InventoryTrendChart /> {/* <-- Chart component here */}
+        <InventoryTrendChart />
       </div>
     </div>
   );
