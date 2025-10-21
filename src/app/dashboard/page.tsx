@@ -19,47 +19,50 @@ export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchCounts = async () => {
+    async function fetchCounts() {
       setLoading(true);
       setError(null);
 
-      try {
-        const { data: items, error: itemsError } = await supabase
-          .from("inventory")
-          .select("id, quantity");
-        if (itemsError) throw itemsError;
+      const { data: items, error: itemsError } = await supabase
+        .from("inventory")
+        .select("id, quantity");
 
-        const { data: employees, error: employeesError } = await supabase
-          .from("employees")
-          .select("id");
-        if (employeesError) throw employeesError;
-
-        const typedItems = items as InventoryItem[] | null;
-        const typedEmployees = employees as Employee[] | null;
-
-        const lowStock = typedItems?.filter((i) => i.quantity < 10).length || 0;
-
-        setCounts({
-          items: typedItems?.length || 0,
-          lowStock,
-          employees: typedEmployees?.length || 0,
-        });
-
-        setLoading(false);  // moved here
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : "Failed to load data";
-        setError(errorMessage);
-        setLoading(false);  // moved here
+      if (itemsError) {
+        setError(itemsError.message);
+        setLoading(false);
+        return;
       }
-    };
+
+      const { data: employees, error: employeesError } = await supabase
+        .from("employees")
+        .select("id");
+
+      if (employeesError) {
+        setError(employeesError.message);
+        setLoading(false);
+        return;
+      }
+
+      const typedItems = items as InventoryItem[] | null;
+      const typedEmployees = employees as Employee[] | null;
+
+      const lowStock = typedItems?.filter((i) => i.quantity < 10).length || 0;
+
+      setCounts({
+        items: typedItems?.length || 0,
+        lowStock,
+        employees: typedEmployees?.length || 0,
+      });
+
+      setLoading(false);
+    }
 
     fetchCounts();
   }, []);
 
   if (loading)
     return <p className="text-center text-gray-500">Loading dashboard data...</p>;
-  if (error)
-    return <p className="text-center text-red-500">Error: {error}</p>;
+  if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
   return (
     <div className="space-y-6">
