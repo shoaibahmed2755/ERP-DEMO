@@ -43,8 +43,7 @@ export default function DashboardPage() {
           lowStock,
           employees: employees?.length || 0,
         });
-      } 
-      } catch (err: unknown) {
+      }catch (err: unknown) {
         const errorMessage: string =
         err instanceof Error ? err.message : "Failed to load data";
         setError(errorMessage);
