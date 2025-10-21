@@ -4,7 +4,7 @@ A sleek employee management app built with Next.js and Supabase. Easily add, edi
 With an induild AI-CHATBOT
 
 
-![ERP-DEMO](https://erp-demo-nu.vercel.app/login)
+![ERP-DEMO](https://github.com/shoaibahmed2755/ERP-DEMO/blob/main/photos/Main%20Dashboard.png)
 
 [![Next.js](https://img.shields.io/badge/Next.js-13-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-1.50.0-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
