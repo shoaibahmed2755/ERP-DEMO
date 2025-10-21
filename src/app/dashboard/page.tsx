@@ -25,21 +25,25 @@ export default function DashboardPage() {
 
       try {
         const { data: items, error: itemsError } = await supabase
-          .from<InventoryItem>("inventory")
+          .from("inventory")
           .select("id, quantity");
         if (itemsError) throw itemsError;
 
         const { data: employees, error: employeesError } = await supabase
-          .from<Employee>("employees")
+          .from("employees")
           .select("id");
         if (employeesError) throw employeesError;
 
-        const lowStock = items?.filter((i) => i.quantity < 10).length || 0;
+        // Cast data to your types, if you want TypeScript type checking
+        const typedItems = items as InventoryItem[] | null;
+        const typedEmployees = employees as Employee[] | null;
+
+        const lowStock = typedItems?.filter((i) => i.quantity < 10).length || 0;
 
         setCounts({
-          items: items?.length || 0,
+          items: typedItems?.length || 0,
           lowStock,
-          employees: employees?.length || 0,
+          employees: typedEmployees?.length || 0,
         });
       } catch (err) {
         const errorMessage =
