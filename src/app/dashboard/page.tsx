@@ -19,58 +19,53 @@ export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-  const fetchCounts = async () => {
-    setLoading(true);
-    setError(null);
+    const fetchCounts = async () => {
+      setLoading(true);
+      setError(null);
 
-    try {
-      const { data: items, error: itemsError } = await supabase
-        .from("inventory")
-        .select("id, quantity");
-      if (itemsError) throw itemsError;
+      try {
+        const { data: items, error: itemsError } = await supabase
+          .from("inventory")
+          .select("id, quantity");
+        if (itemsError) throw itemsError;
 
-      const { data: employees, error: employeesError } = await supabase
-        .from("employees")
-        .select("id");
-      if (employeesError) throw employeesError;
+        const { data: employees, error: employeesError } = await supabase
+          .from("employees")
+          .select("id");
+        if (employeesError) throw employeesError;
 
-      const typedItems = items as InventoryItem[] | null;
-      const typedEmployees = employees as Employee[] | null;
+        const typedItems = items as InventoryItem[] | null;
+        const typedEmployees = employees as Employee[] | null;
 
-      const lowStock = typedItems?.filter((i) => i.quantity < 10).length || 0;
+        const lowStock = typedItems?.filter((i) => i.quantity < 10).length || 0;
 
-      setCounts({
-        items: typedItems?.length || 0,
-        lowStock,
-        employees: typedEmployees?.length || 0,
-      });
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Failed to load data";
-      setError(errorMessage);
-    } finally {
-      setLoading(false);
-    }
-  };
+        setCounts({
+          items: typedItems?.length || 0,
+          lowStock,
+          employees: typedEmployees?.length || 0,
+        });
 
-  fetchCounts();
-}, []);
+        setLoading(false);  // moved here
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : "Failed to load data";
+        setError(errorMessage);
+        setLoading(false);  // moved here
+      }
+    };
 
+    fetchCounts();
+  }, []);
 
   if (loading)
-    return (
-      <p className="text-center text-gray-500">Loading dashboard data...</p>
-    );
-  if (error) return <p className="text-center text-red-500">Error: {error}</p>;
+    return <p className="text-center text-gray-500">Loading dashboard data...</p>;
+  if (error)
+    return <p className="text-center text-red-500">Error: {error}</p>;
 
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card title="Total Items" value={counts.items} />
-        <Card
-          title="Low Stock Items"
-          value={counts.lowStock}
-          valueColor="text-red-600"
-        />
+        <Card title="Low Stock Items" value={counts.lowStock} valueColor="text-red-600" />
         <Card title="Active Employees" value={counts.employees} />
       </div>
 
