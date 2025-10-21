@@ -19,43 +19,42 @@ export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchCounts = async () => {
-      setLoading(true);
-      setError(null);
+  const fetchCounts = async () => {
+    setLoading(true);
+    setError(null);
 
-      try {
-        const { data: items, error: itemsError } = await supabase
-          .from("inventory")
-          .select("id, quantity");
-        if (itemsError) throw itemsError;
+    try {
+      const { data: items, error: itemsError } = await supabase
+        .from("inventory")
+        .select("id, quantity");
+      if (itemsError) throw itemsError;
 
-        const { data: employees, error: employeesError } = await supabase
-          .from("employees")
-          .select("id");
-        if (employeesError) throw employeesError;
+      const { data: employees, error: employeesError } = await supabase
+        .from("employees")
+        .select("id");
+      if (employeesError) throw employeesError;
 
-        // Cast data to your types, if you want TypeScript type checking
-        const typedItems = items as InventoryItem[] | null;
-        const typedEmployees = employees as Employee[] | null;
+      const typedItems = items as InventoryItem[] | null;
+      const typedEmployees = employees as Employee[] | null;
 
-        const lowStock = typedItems?.filter((i) => i.quantity < 10).length || 0;
+      const lowStock = typedItems?.filter((i) => i.quantity < 10).length || 0;
 
-        setCounts({
-          items: typedItems?.length || 0,
-          lowStock,
-          employees: typedEmployees?.length || 0,
-        });
-      } catch (err) {
-        const errorMessage =
-          err instanceof Error ? err.message : "Failed to load data";
-        setError(errorMessage);
-      } finally {
-        setLoading(false);
-      }
-    };
+      setCounts({
+        items: typedItems?.length || 0,
+        lowStock,
+        employees: typedEmployees?.length || 0,
+      });
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Failed to load data";
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchCounts();
-  }, []);
+  fetchCounts();
+}, []);
+
 
   if (loading)
     return (
